@@ -302,6 +302,30 @@ $$\delta^{\pm} = \frac{1}{\kappa^\pm}$$
 Note that this model is very unrealistic, the functional form of all the stochastic components of the model ($P_\pm$ and $p^\pm$)  
 are constant and exogenous. The MM's decisions and that are other trade ($P(\delta)$) are independent, the MM's objective function is static and very simple. 
 
-\subsection*{Trading on an Informational Advantage}
+\subsection{Trading on an Informational Advantage}
+So far we have ignored one of the main issues in trading: informational differences. 
+Many trades happen because one of the parties has better information about what the price of the asset will be. 
+
+Informally, the model structure is: 
+\begin{enumerate}[label = (\roman*)]
+    \item The insider observes $v$ 
+    \item After observing $v$, they choose $x(v)$
+    \item $u$ is realized
+    \item The MMs observe the net order flow $x(v) + u$
+    \item They compete to set $S := S(x+u)$
+\end{enumerate}
+By semi-strong efficiency, we have that 
+$$S(x+u) = \mathbb{E}[v \mid x + u]$$
+We hypothesize 
+$$S(x+ u) = \mu + \lambda (x+ u)$$
+The insider's problem becomes 
+$$\max_x \mathbb{E} [x(v-S(x+u))]$$
+Solving this we get 
+$$x^*(v) = \frac{v- \mu}{2 \lambda} = \beta(v - \mu), \quad \beta = \frac{1}{2\lambda}$$
+We get that 
+$$S = \mu + 2(x + u) \frac{\sigma_u}{\sigma}$$
+So that $\lambda = 2 \frac{\sigma_u}{\sigma}$; this matches the hypothesis. 
+
+
 
 \end{document}
