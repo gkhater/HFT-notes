@@ -326,6 +326,77 @@ We get that
 $$S = \mu + 2(x + u) \frac{\sigma_u}{\sigma}$$
 So that $\lambda = 2 \frac{\sigma_u}{\sigma}$; this matches the hypothesis. 
 
+\subsection{Trading on an informational disadvantage.} 
+We now put the MM at the center of the problem of trading with counterparties who have superior information. 
+
+The situation is as before, there are 
+\begin{itemize}
+    \item Liquidity traders. 
+    \item Informed traders. 
+    \item Competitive MMs
+\end{itemize}
+The MM is risk-neutral and has no cost of holding inventory. 
+
+Our model has a future cash value of the asset equal to $v$ which we limit to two possible 
+values: $V_H > V_L$. Let $p$ denote the unconditional probability of $v = V_H$. 
+All orders are of one unit, MMs post a LO to sell one unit at price $a$ and a buy LO at price $b$. 
+Liquidity traders are price insensitive and want to buy with probability/sell $1/2$. 
+There are many informed traders which all know $v$ but are limited to trade a single unit: 
+when $v = V_H$ hte buy one unit if $a< V_H$ and do nothing otherwise, similarly in the reverse case. 
+The total population of liquidity / informed traders is normalized to one, $\alpha$ are informed and $1-\alpha$
+are uninformed liquidity traders. 
+
+The MM's problem is to choose $a$ and $b$ in this setting. Competition between MMs drives their expected profits to zero. 
+Rather than solve for $a$ and $b$ directly, define the ask/bid halfspreads $\Delta_a$ and $\Delta_b$ resp. 
+The sum of the two $\Delta_a + \Delta_b$ represents the quoted spread. Let 
+$$\mu = \mathbb{E} [v, \mathcal{F}]$$
+Then MMs chose 
+$$a = \mu + \Delta_a, \ b = \mu - \Delta_b$$
+
+Consider what happens when a buy order comes in: 
+\begin{itemize}
+    \item uninformed liquidity trader: profit is $a - \mu = \Delta_a$. 
+    \item Informed trader: loss is $a - V_H = \Delta_a - (V_H - \mu)$
+\end{itemize}
+For the MM the probability that a liquidity trader wants to buy is $1/2$ and that an informed trader 
+wants to buy is $p$. Therefore the expected profit is 
+$$\frac{(1-\alpha)/2}{\alpha p + (1-\alpha)/2} \delta_a + \frac{p \alpha}{\alpha p + (1-\alpha)/2} (\Delta_a - (V_H - \mu))$$
+Setting this to zero we get 
+$$\Delta_a = \frac{1}{1 + \frac{1-\alpha}{\alpha} \frac{1/2}{p}} (V_H - \mu)$$
+similarly 
+$$\Delta_b =  \frac{1}{1 + \frac{1-\alpha}{\alpha} \frac{1/2}{1-p}} (\mu - V_K)$$
+
+\subsubsection{Price Dynamics.}
+We can extend the model above by 
+\begin{enumerate}
+    \item incorporating a time dimension
+    \item making liquidity traders price sensitive
+\end{enumerate}
+The former is simple, in order to avoid keeping track of the interest rate, set it to zero and index all variables 
+by time $t$ and set the time of determination of cash value to $T$. 
+Also ensure that everything incorporates the accumulation of public information from trade, as captured by $\mathfrak{F}_t$. 
+MM's set $p_t = \mathbb{P}(v = V_H \mid \mathcal{F}_t)$ and $\mu_t = \mathbb{v \mid \mathcal{F}_t}$. We get 
+$$a_t = \mu_t + \Delta_{a,t}$$
+and 
+$$b_t = \mu_t - \Delta_{b, t}$$
+Notice that the realized price process is a martingale. 
+
+\subsubsection{Price Sensitive Liquidity Traders.} 
+We can also extend the model so that liquidity traders avoid trading if the half spread $\Delta$ is too high. 
+We can do this by assuming that liquidity trader gets a utility gain of $c_i$ if he manages to execute his trade. 
+Let $F(c)$ be the CDF that describes the distribution of $c_i$ in the population, i.e. $F(c)$ is the proportion of 
+traders with $c_i \le c$; $c_i$ is the agent's urgency parameter. 
+We get that the expected profit from the MM by setting $a = \mu + \Delta$ is given by 
+$$\frac{(1-F(\Delta_a) (1-\alpha)/2)}{\alpha p + (1-F(\Delta_a) (1-\alpha)/2)} \Delta_a + \frac{p \alpha}{\alpha p + (1-F(\Delta_a) (1-\alpha)/2)} (\Delta_a - (V_H \mu))$$
+This parameter increases the half-spreads, which are now implicitly defined by
+$$\Delta_a = \frac{1}{1 + \frac{1-\alpha}{\alpha } \frac{(1-F(\Delta_a)/2)}{p}} (V_H - \mu)$$
+similarly 
+$$\Delta_b = \frac{1}{1 + \frac{1-\alpha}{\alpha}} \frac{(1-F(\Delta_a)/2){p}} (\mu - V_L)$$
+The issue here is that if the urgency parameter in the population are too small; therefore the MM 
+may find that the above expressions have only the solution $\Delta_a = V_H - \mu$ and $\Delta_b = \mu - V_L$. 
+In this case there is a market collapse: no one gains anything from trade and any trade that may occur will come from the 
+informed agents. This immediately reveals the underlying value of the asset and the price will be strong-efficient. 
+
 
 
 \end{document}
