@@ -397,6 +397,68 @@ may find that the above expressions have only the solution $\Delta_a = V_H - \mu
 In this case there is a market collapse: no one gains anything from trade and any trade that may occur will come from the 
 informed agents. This immediately reveals the underlying value of the asset and the price will be strong-efficient. 
 
+\section{Empirical and Statistical Evidence: Prices and Returns} 
+
+\subsection{Introduction}
+This chapter first looks at millisecond data . We then turn to look at the properties of 
+returns at the daily at much shorter time intervals as well as looking at the interrarival 
+times of price changes. 
+
+\subsubsection{The Data}
+The data are made up of the following fields: 
+\begin{itemize}
+    \item Timestamp
+    \item Order Immediate
+    \item Message Type
+    \begin{itemize}
+        \item "B" - Add buy order 
+        \item "S" - Add sell order 
+        \item "E" - Execute outstanding order in part 
+        \item "C" - Cancel outstanding order in part 
+        \item "F" - Execute outstanding order in full 
+        \item "D" - Delete outstanding order in full 
+        \item "X" - Bulk volume for the cross event 
+        \item "T" - Execute non-displayed order 
+    \end{itemize}
+    \item Shares 
+    \item Price 
+    \item Ticker 
+    \item MPID: Market participant id
+    \item Exchange
+\end{itemize}
+
+\subsubsection{Daily Asset Prices and Returns}
+When trading, the first variable of interest is the price level. If we have to ac
+quire/liquidate a position we want to know what price we can get if we aggressively execute it, and if we are providing liquidity we want to know at what 
+prices shares are being bought and sold. 
+
+Market efficiency theories tell us that 
+the price process is not predictable and any positive expected return 
+you can predict, is there as compensation for bearing risk. Therefore long-term investors receive 
+compensation for risk. Similarly Liquidity provider require compensations for leaving offers at the bid and ask. 
+
+\subsubsection{Daily Trading activity.} 
+Measures of trading activity include: 
+Average number of transactions per day on NASDAQ ($N$), average total daily dollar value of shares 
+traded on NASDAQ ($V(\$)$ in $000$s), average number of shares traded daily on NASDAQ ($V(Q)$ in $000$s), 
+total average number of shares traded in all markets (Total $V(Q)$) and Share Turnover. 
+
+\subsubsection{Daily Price Predictability.} 
+According to the efficient market hypothesis, daily asset returns should 
+be close to unpredictable and reflect information in the market. To investigate 
+this we run ordinary least squares (OLS) regressions for intra-day (market open 
+to market close) returns for our four assets.
+
+A variable of importance is order flow: In electronic markets we differentiate between 
+posted LOs and MOs. If a transaction is the result of a limit sell (buy), being lifted (hit) by an 
+aggressive market buy (sell) we refer to it as an aggressive buy (sell) order. 
+Notice that this is a proxy for the net demand for the asset which can incorporate information important 
+to market making strategies (Chapter 2). 
+
+View models in the book and results in the book. 
+
+
+
 
 
 \end{document}
