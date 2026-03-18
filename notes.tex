@@ -457,8 +457,25 @@ to market making strategies (Chapter 2).
 
 View models in the book and results in the book. 
 
+\subsection{Asset Prices and Returns Intraday}
+The asset's return is evaluated using the Microprice $S^*_t$ (also called the weighted-midprice); 
+it is given by 
+$$S_t^* = \frac{V_t^b}{V_t^b + V_t^a} P_t^a + \frac{V_t^a}{V_t^b + V_t^a} P_t^b$$
+Where $P_t^\bullet$ is the best $\bullet$ price and $V_t^\bullet$ are the relative quantities posted at $\bullet$. 
 
+Note that the choice of sampling frequency is important as it has a very significant effect on the properties of 
+the empirical distribution of the asset's return. If it is too short then many of the observation will be zero. 
 
+We assume that the tails fo the return follow a power law with a probability distribution function given by $f(r)$ 
+where 
+$$f(r) = \frac{\alpha - 1}{r_{min}} \left(\frac{r}{r_{min}}\right)^{-\alpha}$$
+The MLE for $\alpha$ can be shown to be 
+$$\hat{\alpha} = 1 + T \left[\sum_{t=1}^T \log (\frac{r_t}{r_{min}})\right]$$
+
+To judge whether the market behaves in accordance with efficient market hypotheses, we estimate the ACF from the return data. 
+The ACT $f(n)$ is given by the correlation of $r_{t-n}$ with $r_{t}$. 
+
+\subsection{Interarrival Times}
 
 
 \end{document}
