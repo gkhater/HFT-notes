@@ -498,5 +498,24 @@ asset is distributed across different venues.
 Optimally executing a trade is nto just about timing and prices displayed in one exchange, but also about 
 how to organize the way an order reaches a particular trading venue 
 
+\subsection{Empirics of Pairs trading} 
+Most traders do not look at one asset at a time, but consider the interactions between different assets. 
+
+Our analysis is based on the following the following model: We assume that both INTC and SMH 
+are stocks whose dynamics have a transitory (mean-reverting) component and a permanent (Brownian) component; 
+we express the dynamics of this process in vector form as follows: 
+$$dS_t = \kappa (\theta - S_t) dt + \sigma d W_t$$
+Where $\Sigma = \sigma \sigma'$ and $W_t$ is Brownian motion. 
+By finding the eigenvalues of $\kappa$, the largest (in absolute terms) will have the strongest exposure to 
+the mean-reverting process, and hence should contain the most trading-relevant information. 
+
+To estimate the discrete version of the model, we estimate the vector autoregressive proecess (VAR) 
+$$\Delta S_t = A + B \Delta S_{t-1} + \varepsilon_t$$
+Doing some arithmetic this allows us to estimate $\kappa, \ \theta$. We can then diagonalize $\kappa$ 
+and get the eigenvalues and the new price coordinates in this new basis.
+Picking the bigger of the two (here $\tilde{S_{t,1}}$) this will be the more strongly mean-reverting one. 
+Hence deviation of $\tilde{S_{t,1}}$ from its equilibrium are corrected more quickly and therefore are more 
+predictable. 
+
 
 \end{document}
