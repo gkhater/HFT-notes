@@ -517,5 +517,44 @@ Picking the bigger of the two (here $\tilde{S_{t,1}}$) this will be the more str
 Hence deviation of $\tilde{S_{t,1}}$ from its equilibrium are corrected more quickly and therefore are more 
 predictable. 
 
+\section{Empirical and Statistical Evidence: Activity and Market Quality.} 
+
+\subsection{Daily Volume and Volatility.} 
+So far we have seen that the price level over the course of a whole da are difficult to predict and move with market forces. 
+But trading activity has a different dynamic structure that affects the way we look at market data.
+
+The idea is that any variable correlated with volatility will inevitably posses forecasting power for future volatility. 
+This is true for bid-ask spreads, transaction count, normalize trading volume, \dots 
+
+First we look at the relationship between volume and volatility using regression. 
+[View their results]
+
+volume seems 
+to have significant time series persistence as evidenced by the common, positive 
+and significant coefficient on last period's volume (Ml and M2 for all assets), and 
+positive and significant 'correlation' with volatility, as measured by HL-volatility 
+(in M2, all assets).
+
+\subsection{Intraday Activity.} 
+We notice empirically a large peak in intraday volume at the beginning and end of the day. We also notice a large variability 
+in volume, which confirms the impression that intraday volume has large peaks of trading. 
+
+We notice that this pattern also happens at the $30$- and one-minute windows. We observe large peaks of trading mixed in with periods of 
+relative calm. 
+
+\subsubsection{Intraday Volume Patterns.} 
+To explain the peaks at the beginning and end of the day, we need to hypothesize about the factors that drive volume. 
+A common hypothesis is that new information generates greater volume.  This would explain the large volume at and just after the opening, as overnight news 
+is gradually incorporated into prices during that time. But this doesn't explain the magnitude of the increase in volume at the end of the day. 
+We will later see that this might be due to traders who have not yet met their liquidations target and will accelerate trade execution as the 
+market approaches its time to close. A second explanation might be that traders may prefer to postpone non-urgent execution towards the end of the day when 
+execution costs are lower. Finally, any strategy that targets volume will naturally exacerbate the increase in volume anticipated during this period. 
+
+Also read about how FDA curves help identify outliers in the data. Which is important when backtesting since these can have disproportionate effect on 
+an algorithm's profitability.  
+
+
+
+
 
 \end{document}
